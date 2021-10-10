@@ -5,6 +5,7 @@ from .models import Area, Evento, Polideportivo, Sede, Unico
 # Register your models here.
 
 class AreaAdmin(admin.ModelAdmin):
+	list_display = ('nom_area', 'ubicacion', 'id_complejo_fk_id')
 	readonly_fields = ('created', 'updated')
 
 class PolideportivoAdmin(admin.ModelAdmin):

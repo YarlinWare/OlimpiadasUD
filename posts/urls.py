@@ -18,5 +18,5 @@ from django.urls import path
 from posts import views as posts_views
 
 urlpatterns = [
-    path('', posts_views.posts_views, name="posts"),
+    path('', posts_views.posts_views, name="feed"),
 ]

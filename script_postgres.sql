@@ -1,33 +1,6 @@
--- Table: public.auth_group
 
--- DROP TABLE public.auth_group;
-
-CREATE TABLE IF NOT EXISTS public.auth_group
-(
-    id integer NOT NULL DEFAULT nextval('auth_group_id_seq'::regclass),
-    name character varying(150) COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT auth_group_pkey PRIMARY KEY (id),
-    CONSTRAINT auth_group_name_key UNIQUE (name)
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE public.auth_group
-    OWNER to postgres;
--- Index: auth_group_name_a6ea08ec_like
-
--- DROP INDEX public.auth_group_name_a6ea08ec_like;
-
-CREATE INDEX auth_group_name_a6ea08ec_like
-    ON public.auth_group USING btree
-    (name COLLATE pg_catalog."default" varchar_pattern_ops ASC NULLS LAST)
-    TABLESPACE pg_default;
-
--- -----------------------------------------------------
-
-
-drop database olimpiadasud;
-create database olimpiadasud;
+drop database olimpiadas_ud;
+create database olimpiadas_ud;
 
 -- Sede
 CREATE TABLE campus_sede(
@@ -41,29 +14,29 @@ CREATE TABLE campus_sede(
 CREATE TABLE campus_unico(
     id_unico     VARCHAR(4)   NOT NULL,
     area_unico   NUMBER(4,2)  NOT NULL,
-    id_complejo_fk CHAR(5),
-    id_deporte_fk VARCHAR(4),
+    id_complejo_fk_id CHAR(5),
+    id_deporte_fk_id VARCHAR(4),
     CONSTRAINT unico_id_pk PRIMARY KEY (id_unico),
-    CONSTRAINT 	id_complejo_fk FOREIGN KEY (id_complejo_fk) REFERENCES campus_sede (id_complejo),
-    CONSTRAINT id_deporte_fk FOREIGN KEY (id_deporte_fk) REFERENCES sports_deporte(id_deporte)
+    CONSTRAINT 	id_complejo_fk_id FOREIGN KEY (id_complejo_fk_id) REFERENCES campus_sede (id_complejo),
+    CONSTRAINT id_deporte_fk_id FOREIGN KEY (id_deporte_fk_id) REFERENCES sports_deporte(id_deporte)
 );
 -- Sede área
 CREATE TABLE campus_area(
     id_area      VARCHAR(3)   NOT NULL,
     nom_area     VARCHAR(10)  NOT NULL,
     ubicacion   VARCHAR(30)  NOT NULL,
-    id_complejo_fk	  CHAR(5),
+    id_complejo_fk_id	  CHAR(5),
     CONSTRAINT area_id_pk PRIMARY KEY (id_area)
-    CONSTRAINT 	id_complejo_fk FOREIGN KEY (id_complejo_fk) REFERENCES campus_sede (id_complejo)
+    CONSTRAINT 	id_complejo_fk_id FOREIGN KEY (id_complejo_fk_id) REFERENCES campus_sede (id_complejo)
 );
 -- Área polideportivo
 CREATE TABLE campus_polideportivo(
     id_poli         VARCHAR(4)  NOT NULL,
-    id_area_fk      VARCHAR(3)   NOT NULL,
-    id_deporte_fk   VARCHAR(4)    NOT NULL,
+    id_area_fk_id      VARCHAR(3)   NOT NULL,
+    id_deporte_fk_id   VARCHAR(4)    NOT NULL,
     CONSTRAINT polideportivo_id_pk PRIMARY KEY (id_poli),
-    CONSTRAINT id_area_fk FOREIGN KEY (id_area_fk) REFERENCES campus_area (id_area),
-    CONSTRAINT id_deporte_fk FOREIGN KEY (id_deporte_fk) REFERENCES sports_deporte(id_deporte)
+    CONSTRAINT id_area_fk_id FOREIGN KEY (id_area_fk_id) REFERENCES campus_area (id_area),
+    CONSTRAINT id_deporte_fk_id FOREIGN KEY (id_deporte_fk_id) REFERENCES sports_deporte(id_deporte)
 );
 -- Evento
 CREATE TABLE campus_evento(
@@ -71,15 +44,15 @@ CREATE TABLE campus_evento(
     fecha_hora      DATE NOT NULL,
     duracion        TIME NOT NULL,
     n_participante  NUMBER(3,0)  NOT NULL,
-    id_complejo_fk	CHAR(5)  NOT NULL,
-    id_deporte_fk   VARCHAR(3)   NOT NULL,
-    id_area_fk      VARCHAR(3),
-    cod_persona_fk  VARCHAR(4)  NOT NULL,
+    id_complejo_fk_id	CHAR(5)  NOT NULL,
+    id_deporte_fk_id   VARCHAR(3)   NOT NULL,
+    id_area_fk_id      VARCHAR(3),
+    cod_persona_fk_id  VARCHAR(4)  NOT NULL,
     CONSTRAINT 	evento_id_pk PRIMARY KEY (consec),
-    CONSTRAINT 	id_complejo_fk FOREIGN KEY (id_complejo_fk) REFERENCES campus_sede (id_complejo),
-    CONSTRAINT id_deporte_fk FOREIGN KEY (id_deporte_fk) REFERENCES sports_deporte (id_deporte),
-    CONSTRAINT id_area_fk FOREIGN KEY (id_area_fk) REFERENCES campus_area (id_area),
-    CONSTRAINT cod_persona_fk FOREIGN KEY (cod_persona_fk) REFERENCES users_persona (cod_persona)
+    CONSTRAINT 	id_complejo_fk_id FOREIGN KEY (id_complejo_fk_id) REFERENCES campus_sede (id_complejo),
+    CONSTRAINT id_deporte_fk_id FOREIGN KEY (id_deporte_fk_id) REFERENCES sports_deporte (id_deporte),
+    CONSTRAINT id_area_fk_id FOREIGN KEY (id_area_fk_id) REFERENCES campus_area (id_area),
+    CONSTRAINT cod_persona_fk_id FOREIGN KEY (cod_persona_fk_id) REFERENCES users_persona (cod_persona)
 );
 -- Deporte
 CREATE TABLE sports_deporte(
@@ -98,13 +71,13 @@ CREATE TABLE sports_estado(
 CREATE TABLE sports_inventario(
     consec_inventario  NUMBER(4,0)  NOT NULL,
     n_piezas     NUMBER(3,0)  NOT NULL,
-    id_complejo_fk  CHAR(5) NOT NULL,
-    id_estado_fk    VARCHAR(2)  NOT NULL,
-    id_equipo_fk    VARCHAR(3)  NOT NULL,
+    id_complejo_fk_id  CHAR(5) NOT NULL,
+    id_estado_fk_id    VARCHAR(2)  NOT NULL,
+    id_equipo_fk_id    VARCHAR(3)  NOT NULL,
     CONSTRAINT inventario_id_pk PRIMARY KEY (consec_inventario),
-    CONSTRAINT 	id_complejo_fk FOREIGN KEY (id_complejo_fk) REFERENCES campus_sede (id_complejo),
-    CONSTRAINT 	id_estado_fk FOREIGN KEY (id_estado_fk) REFERENCES sports_estado (id_estado),
-    CONSTRAINT 	id_equipo_fk FOREIGN KEY (id_equipo_fk) REFERENCES sports_equipo (id_equipo)
+    CONSTRAINT 	id_complejo_fk_id FOREIGN KEY (id_complejo_fk_id) REFERENCES campus_sede (id_complejo),
+    CONSTRAINT 	id_estado_fk_id FOREIGN KEY (id_estado_fk_id) REFERENCES sports_estado (id_estado),
+    CONSTRAINT 	id_equipo_fk_id FOREIGN KEY (id_equipo_fk_id) REFERENCES sports_equipo (id_equipo)
 );
 -- Deporte 2
 CREATE TABLE sports_deporte2(
@@ -124,25 +97,25 @@ CREATE TABLE sports_equipo(
 CREATE TABLE sports_prestamo(
     consec_prestamo  VARCHAR(3)  NOT NULL,
     fecha_prestamo   DATE NOT NULL,
-    cod_persona_fk      VARCHAR(4)  NOT NULL,
-    id_estado_fk    VARCHAR(2)  NOT NULL,
-    consec_inventario_fk  NUMBER(4,0)  NOT NULL,
+    cod_persona_fk_id      VARCHAR(4)  NOT NULL,
+    id_estado_fk_id    VARCHAR(2)  NOT NULL,
+    consec_inventario_fk_id  NUMBER(4,0)  NOT NULL,
     CONSTRAINT prestamo_id_pk PRIMARY KEY (id_equipo),
-    CONSTRAINT cod_persona_fk FOREIGN KEY (cod_persona_fk) REFERENCES users_persona (cod_persona),
-    CONSTRAINT id_estado_fk FOREIGN KEY (id_estado_fk) REFERENCES sports_estado (id_estado),
-    CONSTRAINT consec_inventario_fk FOREIGN KEY (consec_inventario_fk) REFERENCES sports_inventario (consec_inventario)
+    CONSTRAINT cod_persona_fk_id FOREIGN KEY (cod_persona_fk_id) REFERENCES users_persona (cod_persona),
+    CONSTRAINT id_estado_fk_id FOREIGN KEY (id_estado_fk_id) REFERENCES sports_estado (id_estado),
+    CONSTRAINT consec_inventario_fk_id FOREIGN KEY (consec_inventario_fk_id) REFERENCES sports_inventario (consec_inventario)
 );
 -- Comisario Evento
 CREATE TABLE users_comisarioevento(
     consec_comisario    NUMBER(3,0)  NOT NULL,
     fecha_hora          DATE NOT NULL,
-    consec_evento_fk    NUMBER(5,0)  NOT NULL,
-    cod_persona_fk      VARCHAR(4)  NOT NULL,
-    id_tarea_fk         VARCHAR(3)  NOT NULL,
+    consec_evento_fk_id    NUMBER(5,0)  NOT NULL,
+    cod_persona_fk_id      VARCHAR(4)  NOT NULL,
+    id_tarea_fk_id         VARCHAR(3)  NOT NULL,
     CONSTRAINT consec_comisario_pk PRIMARY KEY (consec_comisario),
-    CONSTRAINT consec_evento_fk FOREIGN KEY (consec_evento_fk) REFERENCES campus_evento (consec_evento),
-    CONSTRAINT cod_persona_fk FOREIGN KEY (cod_persona_fk) REFERENCES users_persona (cod_persona),
-    CONSTRAINT id_tarea_fk FOREIGN KEY (id_tarea_fk) REFERENCES users_tarea (id_tarea)
+    CONSTRAINT consec_evento_fk_id FOREIGN KEY (consec_evento_fk_id) REFERENCES campus_evento (consec_evento),
+    CONSTRAINT cod_persona_fk_id FOREIGN KEY (cod_persona_fk_id) REFERENCES users_persona (cod_persona),
+    CONSTRAINT id_tarea_fk_id FOREIGN KEY (id_tarea_fk_id) REFERENCES users_tarea (id_tarea)
 );
 -- Persona
 CREATE TABLE users_persona(
@@ -152,26 +125,27 @@ CREATE TABLE users_persona(
     username         VARCHAR(6)  NOT NULL,
     email       VARCHAR(50) NOT NULL,
     password    VARCHAR(5)  NOT NULL,
-    id_tipo_persona_fk   VARCHAR(3)  NOT NULL,
+    id_tipo_persona_fk_id   VARCHAR(3)  NOT NULL,
     user_id integer NOT NULL,
     CONSTRAINT cod_persona_pk PRIMARY KEY (cod_persona),
-    CONSTRAINT id_tipo_persona_fk FOREIGN KEY (id_tipo_persona_fk) REFERENCES users_tipopersona (id_tipo_persona),
+    CONSTRAINT id_tipo_persona_fk_id FOREIGN KEY (id_tipo_persona_fk_id) REFERENCES users_tipopersona (id_tipo_persona),
     CONSTRAINT user_id FOREIGN KEY (user_id) REFERENCES auth_user (id)
 );
 -- auth_user Django
 -- id,first_name,last_name,username,email,password, is_superuser, is_staff, is_active, last_login, date_joined
-CREATE TABLE auth_user(/*
-    cod_persona      VARCHAR(4)  NOT NULL,
-    first_name      VARCHAR(30) NOT NULL,
-    last_name      VARCHAR(30) NOT NULL,
-    username         VARCHAR(6)  NOT NULL,
-    email       VARCHAR(50) NOT NULL,
-    password    VARCHAR(5)  NOT NULL,
-    id_tipo_persona_fk   VARCHAR(3)  NOT NULL,
-    user_id integer NOT NULL,
-    CONSTRAINT cod_persona_pk PRIMARY KEY (cod_persona),
-    CONSTRAINT id_tipo_persona_fk FOREIGN KEY (id_tipo_persona_fk) REFERENCES users_tipopersona (id_tipo_persona),
-    CONSTRAINT user_id FOREIGN KEY (user_id) REFERENCES auth_user (id)*/
+CREATE TABLE auth_user(
+    id              SERIAL NOT NULL,
+    password        VARCHAR(128)  NOT NULL,
+    last_login      DATETIME,
+    is_superuser    BOOLEAN,
+    username        VARCHAR(150)  NOT NULL,
+    first_name      VARCHAR(150)  NOT NULL,
+    last_name       VARCHAR(150) NOT NULL,
+    email           VARCHAR(254) NOT NULL,
+    is_staff        BOOLEAN,
+    is_active       BOOLEAN,
+    date_joined     DATETIME,
+    CONSTRAINT id PRIMARY KEY (id),
 );
 -- Tarea
 CREATE TABLE users_tarea(
@@ -188,28 +162,28 @@ CREATE TABLE users_tipopersona(
 -- Tablas de rompimiento
 
 -- 1. Deporte/Equipo
-CREATE TABLE sports_deporte_id_equipo_fk(
-    id_deporte_fk   VARCHAR(3)  NOT NULL,
-    id_equipo_fk    VARCHAR(3)  NOT NULL,
-    CONSTRAINT deporte_equipo_id_pk PRIMARY KEY (id_deporte_fk, id_equipo_fk),
-    CONSTRAINT id_deporte_fk FOREIGN KEY (id_deporte_fk) REFERENCES sports_deporte (id_deporte),
-    CONSTRAINT 	id_equipo_fk FOREIGN KEY (id_equipo_fk) REFERENCES sports_equipo (id_equipo)
+CREATE TABLE sports_deporte_id_equipo_fk_id(
+    id_deporte_fk_id   VARCHAR(3)  NOT NULL,
+    id_equipo_fk_id    VARCHAR(3)  NOT NULL,
+    CONSTRAINT deporte_equipo_id_pk PRIMARY KEY (id_deporte_fk_id, id_equipo_fk_id),
+    CONSTRAINT id_deporte_fk_id FOREIGN KEY (id_deporte_fk_id) REFERENCES sports_deporte (id_deporte),
+    CONSTRAINT 	id_equipo_fk_id FOREIGN KEY (id_equipo_fk_id) REFERENCES sports_equipo (id_equipo)
 );
 -- 2. Deporte/Persona
-CREATE TABLE sports_deporte_cod_persona_fk(
-    id_deporte_fk   VARCHAR(3)  NOT NULL,
-    cod_persona_fk  VARCHAR(4)  NOT NULL,
-    CONSTRAINT deporte_persona_id_pk PRIMARY KEY (id_deporte_fk, cod_persona_fk),
-    CONSTRAINT id_persona_fk FOREIGN KEY (cod_persona_fk) REFERENCES users_persona (cod_persona),
-    CONSTRAINT id_deporte_fk FOREIGN KEY (id_deporte_fk) REFERENCES sports_deporte (id_deporte)
+CREATE TABLE sports_deporte_cod_persona_fk_id(
+    id_deporte_fk_id   VARCHAR(3)  NOT NULL,
+    cod_persona_fk_id  VARCHAR(4)  NOT NULL,
+    CONSTRAINT deporte_persona_id_pk PRIMARY KEY (id_deporte_fk_id, cod_persona_fk_id),
+    CONSTRAINT id_persona_fk_id FOREIGN KEY (cod_persona_fk_id) REFERENCES users_persona (cod_persona),
+    CONSTRAINT id_deporte_fk_id FOREIGN KEY (id_deporte_fk_id) REFERENCES sports_deporte (id_deporte)
 );
 -- 3. Persona/Deporte2
-CREATE TABLE sports_deporte2_cod_persona_fk(
-    cod_persona_fk  VARCHAR(4)  NOT NULL,
-    id_deporte2_fk   VARCHAR(3)  NOT NULL,
-    CONSTRAINT deporte_persona_id_pk PRIMARY KEY (cod_persona_fk, id_deporte2_fk),
-    CONSTRAINT id_persona_fk FOREIGN KEY (cod_personaFk) REFERENCES users_persona (cod_persona),
-    CONSTRAINT id_deporte_fk FOREIGN KEY (id_deporte_fk) REFERENCES sports_deporte2 (id_deporte)
+CREATE TABLE sports_deporte2_cod_persona_fk_id(
+    cod_persona_fk_id  VARCHAR(4)  NOT NULL,
+    id_deporte2_fk_id   VARCHAR(3)  NOT NULL,
+    CONSTRAINT deporte_persona_id_pk PRIMARY KEY (cod_persona_fk_id, id_deporte2_fk_id),
+    CONSTRAINT id_persona_fk_id FOREIGN KEY (cod_personaFk) REFERENCES users_persona (cod_persona),
+    CONSTRAINT id_deporte_fk_id FOREIGN KEY (id_deporte_fk_id) REFERENCES sports_deporte2 (id_deporte)
 );
 
 -- Carga de datos
@@ -264,7 +238,7 @@ VALUES 	('11', 'Jeff', 'Bezos', 'Jeff', 'jeff@olimpiadas.udistrital.co', '123465
       	('9', 'Sergey', 'Brin', 'Sergey', 'sergey@olimpiadas.udistrital.co', '12346578', false, false,true, CURRENT_TIMESTAMP,CURRENT_TIMESTAMP),
       	('10', 'Mukesh', 'Ambani', 'Mukesh', 'mukesh@olimpiadas.udistrital.co', '12346578', false, false,true, CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
 
-INSERT INTO users_persona (cod_persona, created, updated, user_id, id_tipo_persona_fk_id)
+INSERT INTO users_persona (cod_persona, created, updated, user_id, id_tipo_persona_fk_id_id)
 VALUES 	('0111', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, '11', '1'),
       	('0091', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, '2', '2'),
       	('0121', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, '3', '2'),
@@ -297,52 +271,33 @@ values 	('00001','Soccer City', 90000, 'Sudáfrica', CURRENT_TIMESTAMP, CURRENT_
 
 -- 5 Registrar 20 equipos deporte
 INSERT INTO sports_equipo (id_equipo, nom_equipo, n_partes, created, updated)
-values 	('001','BAY FC Bayern München Bayern', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-	    ('002','AJAX', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-	    ('003','CHELSEA', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-	    ('004','FIORENTINA', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-	    ('005','Los Angeles Lakers', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-	    ('006','Chicago Bulls', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-	    ('007','Boston Celtics', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-	    ('008','Utah Jazz', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-	    ('009','Vancouver Canucks', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-	    ('010','Chicago Blackhawks', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-	    ('011','Winnipeg Jets', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-	    ('012','Ottawa Senators', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-	    ('013','Sandra Sánchez', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-	    ('014','Viviana Bottaro', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-	    ('015','Kiyou Shimizu', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-	    ('016','Ryo Kiyuna', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-	    ('017','Saskia Loretta', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-	    ('018','Inna Deriglázova', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-	    ('019','Alexa Moreno', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-	    ('020','Vitali Shcherbo', 10, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+values 	('001','Bicicleta', 100, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+	    ('002','Palo de golf', 300, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+	    ('003','Bicicleta fija', 50, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+	    ('004','Espinilleras', 200, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+	    ('005','Bate de béisbol', 425, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+	    ('006','Balón de baloncesto', 80, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+	    ('007','Patín sobre ruedas', 40, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+	    ('008','Traje de baño', 600, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+	    ('009','Raqueta', 83, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+	    ('010','Calzado deportivo', 758, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+	    ('011','Balón de fútbol', 263, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+	    ('012','Bicicleta de montaña', 111, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+	    ('013','Balón de voleibol', 80, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+	    ('014','Pelota de tenis', 999, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+	    ('015','Pelota de golf', 999, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+	    ('016','Guantes', 98, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+	    ('017','Volante de bádminton', 50, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+	    ('018','Guante de boxeo', 63, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+	    ('019','Headgear', 60, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+	    ('020','Pelota de béisbol', 999, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
-INSERT INTO sports_deporte_id_equipo_fk (id_deporte_fk, id_equipo_fk, created, updated)
-values 	('FBL','001', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('FBL','002', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('FBL','003', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('FBL','004', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('BKB','005', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('BKB','006', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('BKB','007', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('BKB','008', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('IHO','009', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('IHO','010', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('IHO','011', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('IHO','012', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('KTE','013', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('KTE','014', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('KTE','015', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('KTE','016', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('FEN','017', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('FEN','018', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('GAR','019', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('GAR','020', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-
-
-
-
+INSERT INTO sports_deporte_id_equipo_fk_id (deporte_id, equipo_id)
+values 	('FBL','011'),('BMF','001'),('BMX','001'),('MTB','012'),
+        ('CTR','003'),('FBL','004'),('FBL','016'),('BOX','018'),
+        ('BOX','019'),('SWM','008'),('OWS','008'),('SWA','008'),
+        ('FSK','007'),('BKB','006'),('BDM','017'),('FBS','011'),
+        ('BSB','005'),('BSB','020'),('FBS','004'),('FBS','016');
 
 -- 7. Carga datos de estado
 INSERT INTO sports_estado (id_estado, desc_estado, created, updated)
@@ -357,6 +312,55 @@ INSERT INTO sports_estado (id_estado, desc_estado, created, updated)
 INSERT INTO users_tarea (id_tarea, desc_tarea, created, updated)
 	values 	('1','Juez', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 			('2','Observador', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+-- Otros
+INSERT INTO campus_area (id_area, nom_area, ubicacion, id_complejo_fk_id_id, created, updated)
+	values 	('001','Centro', 'Centro', '00001', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('002','Esquina N', 'Norte', '00001', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('003','Esquina NE', 'Nort-Este', '00001', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('004','Esquina NO', 'Nort-Oeste', '00001', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('005','Esquina S', 'Sur', '00001', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('006','Esquina SE', 'Sur-Este', '00001', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('007','Esquina SO', 'Sur-Oeste', '00001', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('008','Esquina E', 'Este', '00001', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('009','Esquina O', 'Oeste', '00001', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+
+	     	('010','Centro', 'Centro', '00002', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('011','Esquina N', 'Norte', '00002', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('012','Esquina NE', 'Nort-Este', '00002', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('013','Esquina NO', 'Nort-Oeste', '00002', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('014','Esquina S', 'Sur', '00002', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('015','Esquina SE', 'Sur-Este', '00002', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('016','Esquina SO', 'Sur-Oeste', '00002', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('017','Esquina E', 'Este', '00002', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('018','Esquina O', 'Oeste', '00002', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+
+	     	('019','Centro', 'Centro', '00003', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('020','Esquina N', 'Norte', '00003', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('021','Esquina NE', 'Nort-Este', '00003', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('022','Esquina NO', 'Nort-Oeste', '00003', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('023','Esquina S', 'Sur', '00003', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('024','Esquina SE', 'Sur-Este', '00003', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('025','Esquina SO', 'Sur-Oeste', '00003', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('026','Esquina E', 'Este', '00003', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('027','Esquina O', 'Oeste', '00003', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+
+	     	('028','Centro', 'Centro', '00004', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('029','Esquina N', 'Norte', '00004', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('030','Esquina NE', 'Nort-Este', '00004', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('031','Esquina NO', 'Nort-Oeste', '00004', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('032','Esquina S', 'Sur', '00004', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('033','Esquina SE', 'Sur-Este', '00004', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('034','Esquina SO', 'Sur-Oeste', '00004', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('035','Esquina E', 'Este', '00004', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('036','Esquina O', 'Oeste', '00004', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+-- eventos
+INSERT INTO campus_evento
+    (consec_evento, fecha_hora, duracion, n_participante, id_complejo_fk_id_id, id_deporte_fk_id_id, id_area_fk_id_id, cod_persona_fk_id_id, created, updated)
+values
+    (1, CURRENT_DATE, '01:30:00', 8, '00001', 'FBL', '003', '0111', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+    (2, CURRENT_DATE, '01:30:00', 8, '00002', 'FBL', '002', '0054', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 /*
 ********* Generador de Código UD (en construcción)***********
