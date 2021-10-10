@@ -10,6 +10,10 @@ from django.db.utils import IntegrityError
 from users.models import Persona
 
 # Create your views here.
+
+def home(request):
+    return redirect('users:login')
+
 def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -56,6 +60,7 @@ def signup_view(request):
 
         persona = Persona(user=user)
         persona.cod_persona = request.POST['cod_persona']
+        persona.id_tipo_persona_fk = request.POST['tipo_persona']
         persona.save()
         return redirect('users:login')
 

@@ -64,7 +64,7 @@ class Inventario(models.Model):
 
     def __str__(self):
         """Return inventary."""
-        return self.consec_inventario
+        return str(self.consec_inventario)
 
 # Prestamo
 class Prestamo(models.Model):

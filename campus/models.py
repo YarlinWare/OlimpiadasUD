@@ -12,11 +12,6 @@ class Sede(models.Model):
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    # To do - FOREIGN KEY
-    '''
-    id_unico_fk = models.CharField(max_length=4, null=True)
-    id_complejo_fk = models.CharField(max_length=5, null=True)
-    '''
 
     def __str__(self):
         """Return username."""
@@ -47,9 +42,6 @@ class Area(models.Model):
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    # To do - FOREIGN KEY
-    '''
-    '''
 
     def __str__(self):
         """Return name area."""
@@ -87,4 +79,4 @@ class Evento(models.Model):
 
     def __str__(self):
         """Return username."""
-        return self.consec_evento
+        return str(self.consec_evento)

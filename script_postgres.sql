@@ -162,12 +162,12 @@ CREATE TABLE users_tipopersona(
 -- Tablas de rompimiento
 
 -- 1. Deporte/Equipo
-CREATE TABLE sports_deporte_id_equipo_fk_id(
-    id_deporte_fk_id   VARCHAR(3)  NOT NULL,
-    id_equipo_fk_id    VARCHAR(3)  NOT NULL,
-    CONSTRAINT deporte_equipo_id_pk PRIMARY KEY (id_deporte_fk_id, id_equipo_fk_id),
-    CONSTRAINT id_deporte_fk_id FOREIGN KEY (id_deporte_fk_id) REFERENCES sports_deporte (id_deporte),
-    CONSTRAINT 	id_equipo_fk_id FOREIGN KEY (id_equipo_fk_id) REFERENCES sports_equipo (id_equipo)
+CREATE TABLE sports_deporte_id_equipo_fk(
+    deporte_id   VARCHAR(3)  NOT NULL,
+    equipo_id    VARCHAR(3)  NOT NULL,
+    CONSTRAINT deporte_equipo_id_pk PRIMARY KEY (deporte_id, equipo_id),
+    CONSTRAINT id_deporte_fk_id FOREIGN KEY (deporte_id) REFERENCES sports_deporte (id_deporte),
+    CONSTRAINT 	id_equipo_fk_id FOREIGN KEY (equipo_id) REFERENCES sports_equipo (id_equipo)
 );
 -- 2. Deporte/Persona
 CREATE TABLE sports_deporte_cod_persona_fk_id(
@@ -361,6 +361,11 @@ INSERT INTO campus_evento
 values
     (1, CURRENT_DATE, '01:30:00', 8, '00001', 'FBL', '003', '0111', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
     (2, CURRENT_DATE, '01:30:00', 8, '00002', 'FBL', '002', '0054', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+
+-- Agregar inventario
+-- agregar prestamos
+
 
 /*
 ********* Generador de Código UD (en construcción)***********

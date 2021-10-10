@@ -24,7 +24,7 @@ urlpatterns = [
     # posts
     path('posts/', include(('posts.urls', 'posts'), namespace="posts")),
     # users
-    path('users/', include(('users.urls', 'users'), namespace="users")),
+    path('', include(('users.urls', 'users'), namespace="users")),
     # campus
     path('campus/', include(('campus.urls', 'campus'), namespace="campus")),
 
