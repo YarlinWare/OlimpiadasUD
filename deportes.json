@@ -1,0 +1,612 @@
+{
+    "header": {
+        "id": "",
+        "version": "",
+        "lastUpdate": "2021-10-10T02:49:09.046Z"
+    },
+    "modules": [
+        {
+            "content": [
+                {
+                    "id": "discipline-atletismo",
+                    "name": "Atletismo",
+                    "url": "/es/deportes/atletismo/",
+                    "pictogramUrl": "/images/static/sports/pictograms/atletismo.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "ATH",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-badminton",
+                    "name": "Bádminton",
+                    "url": "/es/deportes/badminton/",
+                    "pictogramUrl": "/images/static/sports/pictograms/badminton.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "BDM",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-baloncesto",
+                    "name": "Baloncesto",
+                    "url": "/es/deportes/baloncesto/",
+                    "pictogramUrl": "/images/static/sports/pictograms/baloncesto.svg",
+                    "type": "[\r\n  \"Summer\"\r\n]",
+                    "odfCode": "BKB",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-baloncesto-3x3",
+                    "name": "Baloncesto 3x3",
+                    "url": "/es/deportes/baloncesto-3x3/",
+                    "pictogramUrl": "/images/static/sports/pictograms/baloncesto-3x3.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "BK3",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-balonmano",
+                    "name": "Balonmano",
+                    "url": "/es/deportes/balonmano/",
+                    "pictogramUrl": "/images/static/sports/pictograms/balonmano.svg",
+                    "type": "[\r\n  \"Summer\"\r\n]",
+                    "odfCode": "HBL",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-balonmano-playa",
+                    "name": "Balonmano Playa",
+                    "url": "/es/deportes/balonmano-playa/",
+                    "pictogramUrl": "/images/static/sports/pictograms/balonmano-playa.svg",
+                    "type": "[\r\n  \"YOG\"\r\n]",
+                    "odfCode": "HBB"
+                },
+                {
+                    "id": "discipline-beisbol-softbol",
+                    "name": "Béisbol Sóftbol",
+                    "url": "/es/deportes/beisbol-softbol/",
+                    "pictogramUrl": "/images/static/sports/pictograms/beisbol-softbol.svg",
+                    "type": "[\r\n  \"Summer\"\r\n]",
+                    "odfCode": "BSB",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-biatlon",
+                    "name": "Biatlón",
+                    "url": "/es/deportes/biatlon/",
+                    "pictogramUrl": "/images/static/sports/pictograms/biatlon.svg",
+                    "type": "[\r\n  \"Winter\"\r\n]",
+                    "odfCode": "BTH",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-bobsleigh",
+                    "name": "Bobsleigh",
+                    "url": "/es/deportes/bobsleigh/",
+                    "pictogramUrl": "/images/static/sports/pictograms/bobsleigh.svg",
+                    "type": "[\r\n  \"Winter\"\r\n]",
+                    "odfCode": "BOB",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-boxeo",
+                    "name": "Boxeo",
+                    "url": "/es/deportes/boxeo/",
+                    "pictogramUrl": "/images/static/sports/pictograms/boxeo.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "BOX",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-breaking",
+                    "name": "Breaking",
+                    "url": "/es/deportes/breaking/",
+                    "pictogramUrl": "/images/static/sports/pictograms/breaking.svg",
+                    "type": "[\r\n  \"YOG\"\r\n]",
+                    "odfCode": "DAN"
+                },
+                {
+                    "id": "discipline-ciclismo-bmx-freestyle",
+                    "name": "Ciclismo BMX Freestyle",
+                    "url": "/es/deportes/ciclismo-bmx-freestyle/",
+                    "pictogramUrl": "/images/static/sports/pictograms/ciclismo-bmx-freestyle.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "BMF",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-ciclismo-bmx-racing",
+                    "name": "Ciclismo BMX Racing",
+                    "url": "/es/deportes/ciclismo-bmx-racing/",
+                    "pictogramUrl": "/images/static/sports/pictograms/ciclismo-bmx-racing.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "BMX",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-ciclismo-de-montana",
+                    "name": "Ciclismo de Montaña",
+                    "url": "/es/deportes/ciclismo-de-montana/",
+                    "pictogramUrl": "/images/static/sports/pictograms/ciclismo-de-montana.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "MTB",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-ciclismo-en-pista",
+                    "name": "Ciclismo de Pista",
+                    "url": "/es/deportes/ciclismo-en-pista/",
+                    "pictogramUrl": "/images/static/sports/pictograms/ciclismo-en-pista.svg",
+                    "type": "[\r\n  \"Summer\"\r\n]",
+                    "odfCode": "CTR",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-ciclismo-en-ruta",
+                    "name": "Ciclismo de Ruta",
+                    "url": "/es/deportes/ciclismo-en-ruta/",
+                    "pictogramUrl": "/images/static/sports/pictograms/ciclismo-en-ruta.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "CRD",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-combinada-nordica",
+                    "name": "Combinada Nórdica",
+                    "url": "/es/deportes/combinada-nordica/",
+                    "pictogramUrl": "/images/static/sports/pictograms/combinada-nordica.svg",
+                    "type": "[\r\n  \"Winter\"\r\n]",
+                    "odfCode": "NCB",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-curling",
+                    "name": "Curling",
+                    "url": "/es/deportes/curling/",
+                    "pictogramUrl": "/images/static/sports/pictograms/curling.svg",
+                    "type": "[\r\n  \"Winter\"\r\n]",
+                    "odfCode": "CUR",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-ecuestre",
+                    "name": "Ecuestre",
+                    "url": "/es/deportes/ecuestre/",
+                    "pictogramUrl": "/images/static/sports/pictograms/ecuestre.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "EQU",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-escalada-deportiva",
+                    "name": "Escalada Deportiva",
+                    "url": "/es/deportes/escalada-deportiva/",
+                    "pictogramUrl": "/images/static/sports/pictograms/escalada-deportiva.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "CLB",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-esgrima",
+                    "name": "Esgrima",
+                    "url": "/es/deportes/esgrima/",
+                    "pictogramUrl": "/images/static/sports/pictograms/esgrima.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "FEN",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-esqui-acrobatico",
+                    "name": "Esquí Acrobático",
+                    "url": "/es/deportes/esqui-acrobatico/",
+                    "pictogramUrl": "/images/static/sports/pictograms/esqui-acrobatico.svg",
+                    "type": "[\r\n  \"Winter\"\r\n]",
+                    "odfCode": "FRS",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-esqui-alpino",
+                    "name": "Esquí Alpino",
+                    "url": "/es/deportes/esqui-alpino/",
+                    "pictogramUrl": "/images/static/sports/pictograms/esqui-alpino.svg",
+                    "type": "[\r\n  \"Winter\"\r\n]",
+                    "odfCode": "ALP",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-esqui-de-fondo",
+                    "name": "Esquí de Fondo",
+                    "url": "/es/deportes/esqui-de-fondo/",
+                    "pictogramUrl": "/images/static/sports/pictograms/esqui-de-fondo.svg",
+                    "type": "[\r\n  \"Winter\"\r\n]",
+                    "odfCode": "CCS",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-esqui-de-montana",
+                    "name": "Esquí de montaña",
+                    "url": "/es/deportes/esqui-de-montana/",
+                    "pictogramUrl": "/images/static/sports/pictograms/esqui-de-montana.svg",
+                    "type": "[\r\n  \"YOG\"\r\n]",
+                    "odfCode": "SMT"
+                },
+                {
+                    "id": "discipline-futbol",
+                    "name": "Fútbol",
+                    "url": "/es/deportes/futbol/",
+                    "pictogramUrl": "/images/static/sports/pictograms/futbol.svg",
+                    "type": "[\r\n  \"Summer\"\r\n]",
+                    "odfCode": "FBL",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-futbol-sala",
+                    "name": "Fútbol Sala",
+                    "url": "/es/deportes/futbol-sala/",
+                    "pictogramUrl": "/images/static/sports/pictograms/futbol-sala.svg",
+                    "type": "[\r\n  \"YOG\"\r\n]",
+                    "odfCode": ""
+                },
+                {
+                    "id": "discipline-gimnasia-acrobatica",
+                    "name": "Gimnasia Acrobática",
+                    "url": "/es/deportes/gimnasia-acrobatica/",
+                    "pictogramUrl": "/images/static/sports/pictograms/gimnasia-acrobatica.svg",
+                    "type": "[\r\n  \"YOG\"\r\n]",
+                    "odfCode": "GAC"
+                },
+                {
+                    "id": "discipline-gimnasia-artistica",
+                    "name": "Gimnasia Artística ",
+                    "url": "/es/deportes/gimnasia-artistica/",
+                    "pictogramUrl": "/images/static/sports/pictograms/gimnasia-artistica.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "GAR",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-gimnasia-en-trampolin",
+                    "name": "Gimnasia en Trampolín",
+                    "url": "/es/deportes/gimnasia-en-trampolin/",
+                    "pictogramUrl": "/images/static/sports/pictograms/gimnasia-en-trampolin.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "GTR",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-gimnasia-ritmica",
+                    "name": "Gimnasia Rítmica",
+                    "url": "/es/deportes/gimnasia-ritmica/",
+                    "pictogramUrl": "/images/static/sports/pictograms/gimnasia-ritmica.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "GRY",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-golf",
+                    "name": "Golf",
+                    "url": "/es/deportes/golf/",
+                    "pictogramUrl": "/images/static/sports/pictograms/golf.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "GLF",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-halterofilia",
+                    "name": "Halterofilia",
+                    "url": "/es/deportes/halterofilia/",
+                    "pictogramUrl": "/images/static/sports/pictograms/halterofilia.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "WLF",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-hockey-sobre-cesped",
+                    "name": "Hockey sobre Césped ",
+                    "url": "/es/deportes/hockey-sobre-cesped/",
+                    "pictogramUrl": "/images/static/sports/pictograms/hockey-sobre-cesped.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "HOC",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-hockey-sobre-hielo",
+                    "name": "Hockey sobre Hielo",
+                    "url": "/es/deportes/hockey-sobre-hielo/",
+                    "pictogramUrl": "/images/static/sports/pictograms/hockey-sobre-hielo.svg",
+                    "type": "[\r\n  \"Winter\"\r\n]",
+                    "odfCode": "IHO",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-judo",
+                    "name": "Judo",
+                    "url": "/es/deportes/judo/",
+                    "pictogramUrl": "/images/static/sports/pictograms/judo.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "JUD",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-karate",
+                    "name": "Karate",
+                    "url": "/es/deportes/karate/",
+                    "pictogramUrl": "/images/static/sports/pictograms/karate.svg",
+                    "type": "[\r\n  \"YOG\",\r\n  \"Summer\"\r\n]",
+                    "odfCode": "KTE",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-lucha",
+                    "name": "Lucha",
+                    "url": "/es/deportes/lucha/",
+                    "pictogramUrl": "/images/static/sports/pictograms/lucha.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "WRE",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-luge",
+                    "name": "Luge",
+                    "url": "/es/deportes/luge/",
+                    "pictogramUrl": "/images/static/sports/pictograms/luge.svg",
+                    "type": "[\r\n  \"Winter\"\r\n]",
+                    "odfCode": "LUG",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-natacion",
+                    "name": "Natación",
+                    "url": "/es/deportes/natacion/",
+                    "pictogramUrl": "/images/static/sports/pictograms/natacion.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "SWM",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-natacion-en-aguas-abiertas",
+                    "name": "Natación Aguas Abiertas",
+                    "url": "/es/deportes/natacion-en-aguas-abiertas/",
+                    "pictogramUrl": "/images/static/sports/pictograms/natacion-en-aguas-abiertas.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "OWS",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-natacion-artistica",
+                    "name": "Natación Artística",
+                    "url": "/es/deportes/natacion-artistica/",
+                    "pictogramUrl": "/images/static/sports/pictograms/natacion-artistica.svg",
+                    "type": "[\r\n  \"Summer\"\r\n]",
+                    "odfCode": "SWA",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-patinaje-artistico",
+                    "name": "Patinaje Artístico",
+                    "url": "/es/deportes/patinaje-artistico/",
+                    "pictogramUrl": "/images/static/sports/pictograms/patinaje-artistico.svg",
+                    "type": "[\r\n  \"Winter\"\r\n]",
+                    "odfCode": "FSK",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-patinaje-de-velocidad",
+                    "name": "Patinaje de Velocidad",
+                    "url": "/es/deportes/patinaje-de-velocidad/",
+                    "pictogramUrl": "/images/static/sports/pictograms/patinaje-de-velocidad.svg",
+                    "type": "[\r\n  \"Winter\"\r\n]",
+                    "odfCode": "SSK",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-patinaje-de-velocidad-en-pista-corta",
+                    "name": "Patinaje de Velocidad en Pista Corta",
+                    "url": "/es/deportes/patinaje-de-velocidad-en-pista-corta/",
+                    "pictogramUrl": "/images/static/sports/pictograms/patinaje-de-velocidad-en-pista-corta.svg",
+                    "type": "[\r\n  \"Winter\"\r\n]",
+                    "odfCode": "STK",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-patinaje-de-velocidad-sobre-ruedas",
+                    "name": "Patinaje de velocidad sobre ruedas",
+                    "url": "/es/deportes/patinaje-de-velocidad-sobre-ruedas/",
+                    "pictogramUrl": "/images/static/sports/pictograms/patinaje-de-velocidad-sobre-ruedas.svg",
+                    "type": "[\r\n  \"YOG\"\r\n]",
+                    "odfCode": "ROL"
+                },
+                {
+                    "id": "discipline-pentatlon-moderno",
+                    "name": "Pentatlón Moderno",
+                    "url": "/es/deportes/pentatlon-moderno/",
+                    "pictogramUrl": "/images/static/sports/pictograms/pentatlon-moderno.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "MPN",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-canotaje-en-eslalon",
+                    "name": "Piragüismo eslalon",
+                    "url": "/es/deportes/canotaje-en-eslalon/",
+                    "pictogramUrl": "/images/static/sports/pictograms/canotaje-en-eslalon.svg",
+                    "type": "[\r\n  \"Summer\"\r\n]",
+                    "odfCode": "CSL",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-canotaje-en-sprint",
+                    "name": "Piragüismo esprint",
+                    "url": "/es/deportes/canotaje-en-sprint/",
+                    "pictogramUrl": "/images/static/sports/pictograms/canotaje-en-sprint.svg",
+                    "type": "[\r\n  \"Summer\"\r\n]",
+                    "odfCode": "CSP",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-remo",
+                    "name": "Remo",
+                    "url": "/es/deportes/remo/",
+                    "pictogramUrl": "/images/static/sports/pictograms/remo.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "ROW",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-rugby-7",
+                    "name": "Rugby 7",
+                    "url": "/es/deportes/rugby-7/",
+                    "pictogramUrl": "/images/static/sports/pictograms/rugby-7.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "RUG",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-salto-de-esqui",
+                    "name": "Salto de Esquí",
+                    "url": "/es/deportes/salto-de-esqui/",
+                    "pictogramUrl": "/images/static/sports/pictograms/salto-de-esqui.svg",
+                    "type": "[\r\n  \"Winter\"\r\n]",
+                    "odfCode": "SJP",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-saltos",
+                    "name": "Saltos",
+                    "url": "/es/deportes/saltos/",
+                    "pictogramUrl": "/images/static/sports/pictograms/saltos.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "DIV",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-skateboarding",
+                    "name": "Skateboarding",
+                    "url": "/es/deportes/skateboarding/",
+                    "pictogramUrl": "/images/static/sports/pictograms/skateboarding.svg",
+                    "type": "[\r\n  \"Summer\"\r\n]",
+                    "odfCode": "SKB",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-skeleton",
+                    "name": "Skeleton",
+                    "url": "/es/deportes/skeleton/",
+                    "pictogramUrl": "/images/static/sports/pictograms/skeleton.svg",
+                    "type": "[\r\n  \"Winter\"\r\n]",
+                    "odfCode": "SKN",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-snowboard",
+                    "name": "Snowboard",
+                    "url": "/es/deportes/snowboard/",
+                    "pictogramUrl": "/images/static/sports/pictograms/snowboard.svg",
+                    "type": "[\r\n  \"Winter\"\r\n]",
+                    "odfCode": "SBD",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-surf",
+                    "name": "Surf",
+                    "url": "/es/deportes/surf/",
+                    "pictogramUrl": "/images/static/sports/pictograms/surf.svg",
+                    "type": "[\r\n  \"Summer\"\r\n]",
+                    "odfCode": "SRF",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-taekwondo",
+                    "name": "Taekwondo",
+                    "url": "/es/deportes/taekwondo/",
+                    "pictogramUrl": "/images/static/sports/pictograms/taekwondo.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "TKW",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-tenis",
+                    "name": "Tenis",
+                    "url": "/es/deportes/tenis/",
+                    "pictogramUrl": "/images/static/sports/pictograms/tenis.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "TEN",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-tenis-de-mesa",
+                    "name": "Tenis de Mesa",
+                    "url": "/es/deportes/tenis-de-mesa/",
+                    "pictogramUrl": "/images/static/sports/pictograms/tenis-de-mesa.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "TTE",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-tiro",
+                    "name": "Tiro",
+                    "url": "/es/deportes/tiro/",
+                    "pictogramUrl": "/images/static/sports/pictograms/tiro.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "SHO",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-tiro-con-arco",
+                    "name": "Tiro con Arco",
+                    "url": "/es/deportes/tiro-con-arco/",
+                    "pictogramUrl": "/images/static/sports/pictograms/tiro-con-arco.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "ARC",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-triatlon",
+                    "name": "Triatlón",
+                    "url": "/es/deportes/triatlon/",
+                    "pictogramUrl": "/images/static/sports/pictograms/triatlon.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "TRI",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-vela",
+                    "name": "Vela",
+                    "url": "/es/deportes/vela/",
+                    "pictogramUrl": "/images/static/sports/pictograms/vela.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "SAL",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-voleibol",
+                    "name": "Voleibol",
+                    "url": "/es/deportes/voleibol/",
+                    "pictogramUrl": "/images/static/sports/pictograms/voleibol.svg",
+                    "type": "[\r\n  \"Summer\"\r\n]",
+                    "odfCode": "VVO",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-voleibol-playa",
+                    "name": "Voleibol Playa",
+                    "url": "/es/deportes/voleibol-playa/",
+                    "pictogramUrl": "/images/static/sports/pictograms/voleibol-playa.svg",
+                    "type": "[\r\n  \"Summer\",\r\n  \"YOG\"\r\n]",
+                    "odfCode": "VBV",
+                    "gameType": "OLY"
+                },
+                {
+                    "id": "discipline-waterpolo",
+                    "name": "Waterpolo",
+                    "url": "/es/deportes/waterpolo/",
+                    "pictogramUrl": "/images/static/sports/pictograms/waterpolo.svg",
+                    "type": "[\r\n  \"Summer\"\r\n]",
+                    "odfCode": "WPO",
+                    "gameType": "OLY"
+                }
+            ],
+            "type": "sportList",
+            "moduleName": "Module_3697d4f3a2e147db8c3a578341e7c9c6"
+        }
+    ]
+}

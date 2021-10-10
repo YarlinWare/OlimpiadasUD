@@ -46,6 +46,9 @@ THIRD_PARTY_APPS = (
 LOCAL_APPS = (
 	# Aca irian las apps de nuestros proyectos que vamoss a instalar, cosas como posts, perfiles, etc
     'users',
+    'posts',
+    'campus',
+    'sports',
 )
 # Application definition
 
@@ -87,8 +90,14 @@ WSGI_APPLICATION = 'olimpiadasUD.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'olimpiadas_ud',
+        'USER': 'postgres',
+        'PASSWORD': 'accdata01',
+        'HOST': 'localhost',
+        'PORT': '5433',
     }
 }
 
