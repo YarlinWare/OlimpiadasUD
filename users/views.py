@@ -21,7 +21,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user:
             login(request, user)
-            return redirect('posts:feed')
+            return redirect('admin:index')
         else:
             return render(request, 'users/login.html', { 'error': 'Usuario o contraseña invalido.'})
     # Si el usuario ya está autenticado
