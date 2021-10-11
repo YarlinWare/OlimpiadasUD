@@ -8,6 +8,8 @@ CREATE TABLE campus_sede(
     nom_complejo VARCHAR(30)  NOT NULL,
     presupuesto NUMBER(7,2)  NOT NULL,
     direccion   VARCHAR(30)  NOT NULL,
+    created DATETIME,
+    updated DATETIME,
     CONSTRAINT sede_id_pk PRIMARY KEY (id_complejo),
 );
 -- Sede único
@@ -16,6 +18,8 @@ CREATE TABLE campus_unico(
     area_unico   NUMBER(4,2)  NOT NULL,
     id_complejo_fk_id CHAR(5),
     id_deporte_fk_id VARCHAR(4),
+    created DATETIME,
+    updated DATETIME,
     CONSTRAINT unico_id_pk PRIMARY KEY (id_unico),
     CONSTRAINT 	id_complejo_fk_id FOREIGN KEY (id_complejo_fk_id) REFERENCES campus_sede (id_complejo),
     CONSTRAINT id_deporte_fk_id FOREIGN KEY (id_deporte_fk_id) REFERENCES sports_deporte(id_deporte)
@@ -26,6 +30,8 @@ CREATE TABLE campus_area(
     nom_area     VARCHAR(10)  NOT NULL,
     ubicacion   VARCHAR(30)  NOT NULL,
     id_complejo_fk_id	  CHAR(5),
+    created DATETIME,
+    updated DATETIME,
     CONSTRAINT area_id_pk PRIMARY KEY (id_area)
     CONSTRAINT 	id_complejo_fk_id FOREIGN KEY (id_complejo_fk_id) REFERENCES campus_sede (id_complejo)
 );
@@ -34,6 +40,8 @@ CREATE TABLE campus_polideportivo(
     id_poli         VARCHAR(4)  NOT NULL,
     id_area_fk_id      VARCHAR(3)   NOT NULL,
     id_deporte_fk_id   VARCHAR(4)    NOT NULL,
+    created DATETIME,
+    updated DATETIME,
     CONSTRAINT polideportivo_id_pk PRIMARY KEY (id_poli),
     CONSTRAINT id_area_fk_id FOREIGN KEY (id_area_fk_id) REFERENCES campus_area (id_area),
     CONSTRAINT id_deporte_fk_id FOREIGN KEY (id_deporte_fk_id) REFERENCES sports_deporte(id_deporte)
@@ -47,7 +55,9 @@ CREATE TABLE campus_evento(
     id_complejo_fk_id	CHAR(5)  NOT NULL,
     id_deporte_fk_id   VARCHAR(3)   NOT NULL,
     id_area_fk_id      VARCHAR(3),
-    cod_persona_fk_id  VARCHAR(4)  NOT NULL,
+    cod_persona_fk_id  VARCHAR(4)  NOT NULL,,
+    created DATETIME,
+    updated DATETIME,
     CONSTRAINT 	evento_id_pk PRIMARY KEY (consec),
     CONSTRAINT 	id_complejo_fk_id FOREIGN KEY (id_complejo_fk_id) REFERENCES campus_sede (id_complejo),
     CONSTRAINT id_deporte_fk_id FOREIGN KEY (id_deporte_fk_id) REFERENCES sports_deporte (id_deporte),
@@ -59,12 +69,16 @@ CREATE TABLE sports_deporte(
     id_deporte       VARCHAR(3)   NOT NULL,
     nom_deporte      VARCHAR(30)  NOT NULL,
     n_max_integrantes NUMBER(2,0)  NOT NULL,
+    created DATETIME,
+    updated DATETIME,
     CONSTRAINT deporte_id_pk PRIMARY KEY (id_deporte)
 );
 -- Estado
 CREATE TABLE sports_estado(
     id_estado    VARCHAR(2)  NOT NULL,
     desc_estado  VARCHAR(30) NOT NULL,
+    created DATETIME,
+    updated DATETIME,
     CONSTRAINT estado_id_pk PRIMARY KEY (id_estado),
 );
 -- Inventario
@@ -74,6 +88,8 @@ CREATE TABLE sports_inventario(
     id_complejo_fk_id  CHAR(5) NOT NULL,
     id_estado_fk_id    VARCHAR(2)  NOT NULL,
     id_equipo_fk_id    VARCHAR(3)  NOT NULL,
+    created DATETIME,
+    updated DATETIME,
     CONSTRAINT inventario_id_pk PRIMARY KEY (consec_inventario),
     CONSTRAINT 	id_complejo_fk_id FOREIGN KEY (id_complejo_fk_id) REFERENCES campus_sede (id_complejo),
     CONSTRAINT 	id_estado_fk_id FOREIGN KEY (id_estado_fk_id) REFERENCES sports_estado (id_estado),
@@ -84,14 +100,18 @@ CREATE TABLE sports_deporte2(
     id_deporte       VARCHAR(3)  NOT NULL,
     nom_deporte      VARCHAR(30)  NOT NULL,
     n_max_integrantes NUMBER(2,0)  NOT NULL,
-        CONSTRAINT deporte_id_pk PRIMARY KEY (id_tipo_persona),
+    created DATETIME,
+    updated DATETIME,
+    CONSTRAINT deporte_id_pk PRIMARY KEY (id_tipo_persona),
 );
 -- Equipo
 CREATE TABLE sports_equipo(
     id_equipo    VARCHAR(3)  NOT NULL,
     nom_equipo   VARCHAR(30)  NOT NULL,
     n_partes     NUMBER(4,0)  NOT NULL,
-        CONSTRAINT equipo_id_pk PRIMARY KEY (id_equipo),
+    created DATETIME,
+    updated DATETIME,
+    CONSTRAINT equipo_id_pk PRIMARY KEY (id_equipo),
 );
 -- Prestamo
 CREATE TABLE sports_prestamo(
@@ -100,6 +120,8 @@ CREATE TABLE sports_prestamo(
     cod_persona_fk_id      VARCHAR(4)  NOT NULL,
     id_estado_fk_id    VARCHAR(2)  NOT NULL,
     consec_inventario_fk_id  NUMBER(4,0)  NOT NULL,
+    created DATETIME,
+    updated DATETIME,
     CONSTRAINT prestamo_id_pk PRIMARY KEY (id_equipo),
     CONSTRAINT cod_persona_fk_id FOREIGN KEY (cod_persona_fk_id) REFERENCES users_persona (cod_persona),
     CONSTRAINT id_estado_fk_id FOREIGN KEY (id_estado_fk_id) REFERENCES sports_estado (id_estado),
@@ -112,6 +134,8 @@ CREATE TABLE users_comisarioevento(
     consec_evento_fk_id    NUMBER(5,0)  NOT NULL,
     cod_persona_fk_id      VARCHAR(4)  NOT NULL,
     id_tarea_fk_id         VARCHAR(3)  NOT NULL,
+    created DATETIME,
+    updated DATETIME,
     CONSTRAINT consec_comisario_pk PRIMARY KEY (consec_comisario),
     CONSTRAINT consec_evento_fk_id FOREIGN KEY (consec_evento_fk_id) REFERENCES campus_evento (consec_evento),
     CONSTRAINT cod_persona_fk_id FOREIGN KEY (cod_persona_fk_id) REFERENCES users_persona (cod_persona),
@@ -120,13 +144,15 @@ CREATE TABLE users_comisarioevento(
 -- Persona
 CREATE TABLE users_persona(
     cod_persona      VARCHAR(4)  NOT NULL,
-    first_name      VARCHAR(30) NOT NULL,
-    last_name      VARCHAR(30) NOT NULL,
-    username         VARCHAR(6)  NOT NULL,
-    email       VARCHAR(50) NOT NULL,
-    password    VARCHAR(5)  NOT NULL,
+    --first_name      VARCHAR(30) NOT NULL,
+    --last_name      VARCHAR(30) NOT NULL,
+    --username         VARCHAR(6)  NOT NULL,
+    --email       VARCHAR(50) NOT NULL,
+    --password    VARCHAR(5)  NOT NULL,
     id_tipo_persona_fk_id   VARCHAR(3)  NOT NULL,
     user_id integer NOT NULL,
+    created DATETIME,
+    updated DATETIME,
     CONSTRAINT cod_persona_pk PRIMARY KEY (cod_persona),
     CONSTRAINT id_tipo_persona_fk_id FOREIGN KEY (id_tipo_persona_fk_id) REFERENCES users_tipopersona (id_tipo_persona),
     CONSTRAINT user_id FOREIGN KEY (user_id) REFERENCES auth_user (id)
@@ -151,39 +177,46 @@ CREATE TABLE auth_user(
 CREATE TABLE users_tarea(
     id_tarea         VARCHAR(3)  NOT NULL,
     desc_tarea       VARCHAR(20)  NOT NULL,
+    created DATETIME,
+    updated DATETIME,
     CONSTRAINT tarea_id_pk PRIMARY KEY (id_tarea),
 );
 -- Tipo Persona
 CREATE TABLE users_tipopersona(
     id_tipo_persona   VARCHAR(3)  NOT NULL,
     desc_tipo_persona VARCHAR(30)  NOT NULL,
+    created DATETIME,
+    updated DATETIME,
     CONSTRAINT tipo_persona_id_pk PRIMARY KEY (id_tipo_persona),
 );
 -- Tablas de rompimiento
 
 -- 1. Deporte/Equipo
 CREATE TABLE sports_deporte_id_equipo_fk(
-    deporte_id   VARCHAR(3)  NOT NULL,
-    equipo_id    VARCHAR(3)  NOT NULL,
+    id          SERIAL NOT NULL,
+    deporte_id  VARCHAR(3)  NOT NULL,
+    equipo_id   VARCHAR(3)  NOT NULL,
     CONSTRAINT deporte_equipo_id_pk PRIMARY KEY (deporte_id, equipo_id),
     CONSTRAINT id_deporte_fk_id FOREIGN KEY (deporte_id) REFERENCES sports_deporte (id_deporte),
     CONSTRAINT 	id_equipo_fk_id FOREIGN KEY (equipo_id) REFERENCES sports_equipo (id_equipo)
 );
 -- 2. Deporte/Persona
-CREATE TABLE sports_deporte_cod_persona_fk_id(
-    id_deporte_fk_id   VARCHAR(3)  NOT NULL,
-    cod_persona_fk_id  VARCHAR(4)  NOT NULL,
-    CONSTRAINT deporte_persona_id_pk PRIMARY KEY (id_deporte_fk_id, cod_persona_fk_id),
-    CONSTRAINT id_persona_fk_id FOREIGN KEY (cod_persona_fk_id) REFERENCES users_persona (cod_persona),
-    CONSTRAINT id_deporte_fk_id FOREIGN KEY (id_deporte_fk_id) REFERENCES sports_deporte (id_deporte)
+CREATE TABLE sports_deporte_cod_persona_fk(
+    id          SERIAL NOT NULL,
+    deporte_id  VARCHAR(3)  NOT NULL,
+    persona_id  VARCHAR(4)  NOT NULL,
+    CONSTRAINT deporte_persona_id_pk PRIMARY KEY (deporte_id, persona_id),
+    CONSTRAINT id_persona_fk_id FOREIGN KEY (persona_id) REFERENCES users_persona (cod_persona),
+    CONSTRAINT id_deporte_fk_id FOREIGN KEY (deporte_id) REFERENCES sports_deporte (id_deporte)
 );
 -- 3. Persona/Deporte2
-CREATE TABLE sports_deporte2_cod_persona_fk_id(
-    cod_persona_fk_id  VARCHAR(4)  NOT NULL,
-    id_deporte2_fk_id   VARCHAR(3)  NOT NULL,
-    CONSTRAINT deporte_persona_id_pk PRIMARY KEY (cod_persona_fk_id, id_deporte2_fk_id),
-    CONSTRAINT id_persona_fk_id FOREIGN KEY (cod_personaFk) REFERENCES users_persona (cod_persona),
-    CONSTRAINT id_deporte_fk_id FOREIGN KEY (id_deporte_fk_id) REFERENCES sports_deporte2 (id_deporte)
+CREATE TABLE sports_deporte2_cod_persona_fk(
+    id          SERIAL NOT NULL,
+    persona_id  VARCHAR(4)  NOT NULL,
+    deporte2_id VARCHAR(3)  NOT NULL,
+    CONSTRAINT deporte_persona_id_pk PRIMARY KEY (persona_id, deporte2_id),
+    CONSTRAINT id_persona_fk_id FOREIGN KEY (persona_id) REFERENCES users_persona (cod_persona),
+    CONSTRAINT id_deporte_fk_id FOREIGN KEY (deporte2_id) REFERENCES sports_deporte2 (id_deporte)
 );
 
 -- Carga de datos
@@ -250,7 +283,7 @@ VALUES 	('0111', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, '11', '1'),
       	('0023', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, '9', '2'),
       	('0011', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, '10', '2');
 
--- 4. Carga datos de sedes 
+-- 4. Carga datos de sedes
 -- TO DO
 INSERT INTO campus_sede (id_complejo, nom_complejo, presupuesto, direccion, created, updated)
 values 	('00001','Soccer City', 90000, 'Sudáfrica', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
@@ -362,9 +395,62 @@ values
     (1, CURRENT_DATE, '01:30:00', 8, '00001', 'FBL', '003', '0111', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
     (2, CURRENT_DATE, '01:30:00', 8, '00002', 'FBL', '002', '0054', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
-
 -- Agregar inventario
+INSERT INTO sports_inventario (consec_inventario, n_piezas, id_complejo_fk_id, id_estado_fk_id, id_equipo_fk_id, created, updated)
+	values 	(1, 600, '00001', 1, '001', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(2, 600, '00001', 1, '002', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(3, 600, '00001', 1, '003', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(4, 600, '00001', 1, '004', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(5, 600, '00001', 1, '005', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(6, 600, '00001', 1, '006', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(7, 600, '00001', 1, '007', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(8, 600, '00001', 1, '008', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(9, 600, '00001', 1, '009', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(10, 600, '00001', 1, '010', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(11, 600, '00001', 1, '011', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(12, 600, '00001', 1, '012', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(13, 600, '00001', 1, '013', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(14, 600, '00001', 1, '014', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(15, 600, '00001', 1, '015', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(16, 600, '00001', 1, '016', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(17, 600, '00001', 1, '017', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(18, 600, '00001', 1, '018', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(19, 600, '00001', 1, '019', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(20, 600, '00001', 1, '020', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+	        (21, 600, '00002', 1, '001', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(22, 600, '00002', 1, '002', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(23, 600, '00002', 1, '003', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(24, 600, '00002', 1, '004', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(25, 600, '00002', 1, '005', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(26, 600, '00002', 1, '006', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(27, 600, '00002', 1, '007', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(28, 600, '00002', 1, '008', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(29, 600, '00002', 1, '009', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(30, 600, '00002', 1, '010', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(31, 600, '00002', 1, '011', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(32, 600, '00002', 1, '012', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(33, 600, '00002', 1, '013', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(34, 600, '00002', 1, '014', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(35, 600, '00002', 1, '015', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(36, 600, '00002', 1, '016', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(37, 600, '00002', 1, '017', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(38, 600, '00002', 1, '018', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(39, 600, '00002', 1, '019', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			(40, 600, '00002', 1, '020', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
 -- agregar prestamos
+INSERT INTO sports_prestamo (consec_prestamo, fecha_prestamo, cod_persona_fk_id, id_estado_fk_id, consec_inventario_fk_id, created, updated)
+	values 	('1', CURRENT_DATE, '0111', '1', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('2', CURRENT_DATE, '0091', '2', 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('3', CURRENT_DATE, '0121', '3', 3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('4', CURRENT_DATE, '0054', '4', 4, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('5', CURRENT_DATE, '0037', '5', 4, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('6', CURRENT_DATE, '0061', '6', 5, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('7', CURRENT_DATE, '0087', '1', 6, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('8', CURRENT_DATE, '0007', '2', 7, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('9', CURRENT_DATE, '0023', '3', 8, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+			('10', CURRENT_DATE, '0011', '4', 9, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
 
 
 /*
