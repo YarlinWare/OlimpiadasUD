@@ -7,7 +7,10 @@ from django.contrib.auth.models import User
 from django.db.utils import IntegrityError
 
 #Utils
-from users.models import Persona
+from users.models import Persona, ComisarioEvento, Tarea, TipoPersona
+
+from .serializers import PersonaSerializer,ComisarioEventoSerializer,TareaSerializer,TipoPersonaSerializer
+from rest_framework import viewsets
 
 # Create your views here.
 
@@ -65,3 +68,20 @@ def signup_view(request):
         return redirect('users:login')
 
     return render(request, 'users/signup_view.html')
+
+
+class PersonasViewSet(viewsets.ModelViewSet):
+    queryset = Persona.objects.all()
+    serializer_class = PersonaSerializer
+
+class ComisarioEventoViewSet(viewsets.ModelViewSet):
+    queryset = ComisarioEvento.objects.all()
+    serializer_class = ComisarioEventoSerializer
+
+class TareaViewSet(viewsets.ModelViewSet):
+    queryset = Tarea.objects.all()
+    serializer_class = TareaSerializer
+
+class TipoPersonasViewSet(viewsets.ModelViewSet):
+    queryset = TipoPersona.objects.all()
+    serializer_class = TipoPersonaSerializer
