@@ -18,11 +18,10 @@ WHERE CA.id_complejo_fk_id = '00001'; -- Complejo seleccionado id 'Soccer City'
 SELECT SD.nom_deporte
 FROM sports_deporte SD
 INNER JOIN campus_evento CE ON (CE.id_deporte_fk_id = SD.id_deporte)
-INNER JOIN campus_area CA ON (CA.id_area = CE.id_area_fk_id)
-							AND (CA.id_complejo_fk_id = CE.id_complejo_fk_id) 
-							AND (CA.id_area =  '00001');
+INNER JOIN campus_area CA ON (CA.id_area = CE.id_area_fk_id) AND (CA.id_complejo_fk_id = CE.id_complejo_fk_id) 
+								AND (CA.id_area =  '00001');
 
---3.4. Incluir los demás campos
+--3.4. Incluir los demás campos ¿?
 -- id persona
 
 --3.5. Responsable del Evento quien está “logueado” y la fecha de préstamo corresponde a la fecha del sistema.
@@ -96,4 +95,4 @@ SELECT AU.first_name, AU.last_name, AU.username, fecha_prestamo AS fecha_sistema
 FROM users_persona UP
 INNER JOIN sports_prestamo SP ON (SP.cod_persona_fk_id = UP.cod_persona)
 INNER JOIN auth_user AU ON (UP.user_id = AU.id)
-WHERE AU.username = 'Jeff'; --Usuario logueado
+WHERE AU.username = 'Jeff' --Usuario logueado

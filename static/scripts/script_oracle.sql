@@ -237,3 +237,4 @@ CREATE TABLE sports_deporte2_cod_persona_fk(
     CONSTRAINT sp_dep2_codp_fkid_dep2_fk_id FOREIGN KEY (deporte2_id) REFERENCES sports_deporte2 (id_deporte)
 );
 
+ALTER TABLE campus_sede RENAME COLUMN dirección TO direccion;
