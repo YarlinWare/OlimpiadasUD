@@ -238,3 +238,4 @@ CREATE TABLE sports_deporte2_cod_persona_fk(
 );
 
 ALTER TABLE campus_sede RENAME COLUMN dirección TO direccion;
+ALTER TABLE campus_polideportivo MODIFY id_area_fk_id VARCHAR(5);

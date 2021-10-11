@@ -90,28 +90,15 @@ WSGI_APPLICATION = 'olimpiadasUD.wsgi.application'
 
 DATABASES = {
     # Postgresql
-    '''
-    '''
     'default': {
-        'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'xe',
-        'USER': 'cyara',
-        'PASSWORD': '1234',
-        'HOST': '',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'olimpiadas_ud',
+        'USER': 'postgres',
+        'PASSWORD': 'accdata01',
+        'HOST': 'localhost',
+        'PORT': '5433',
     }
 }
-'''
--Iniciar sesión en linux
-    sqlplus sys as sysdba
--contraseña: 1234
--puerto http: 8081
--puerto de escucha: 1521
-
-create user userejemplo identified by 1234;
-grant connect, resource, dba to userejemplo;
-
-'''
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
