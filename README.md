@@ -61,6 +61,13 @@ $ python manage.py createuser
 http://localhost:8000/admin/
 ```
 
+## Diagrama
+
+![](https://github.com/YarlinWare/OlimpiadasUD/blob/master/static/img/Olimpiadas_ud.jpeg)
+
+> Diagrama Base de Datos Olimpiadas_ud
+
+
 # Lista de rutas
 
 | Sección  |  Ruta | url |
