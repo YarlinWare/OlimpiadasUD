@@ -16,11 +16,16 @@ class EstadoAdmin(admin.ModelAdmin):
 	readonly_fields = ('created', 'updated')
 
 class InventarioAdmin(admin.ModelAdmin):
+	list_display = ('consec_inventario', 'n_piezas','id_complejo_fk', 'id_estado_fk', 'id_equipo_fk')
 	readonly_fields = ('created', 'updated')
+	list_display_links = ()
+	ordering = ('id_complejo_fk', 'id_equipo_fk')
 
 class PrestamoAdmin(admin.ModelAdmin):
+	list_display = ('consec_prestamo', 'fecha_prestamo','cod_persona_fk', 'id_estado_fk', 'consec_inventario_fk')
+	list_display_links = ('consec_prestamo', 'fecha_prestamo', )
+	ordering = ('fecha_prestamo', 'cod_persona_fk')
 	readonly_fields = ('created', 'updated')
-
 
 admin.site.register(Deporte, DeporteAdmin)
 admin.site.register(Deporte2, Deporte2Admin)

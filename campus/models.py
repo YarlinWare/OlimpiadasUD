@@ -30,7 +30,7 @@ class Unico(models.Model):
 
     def __str__(self):
         """Return username."""
-        return self.area_unico
+        return str(self.area_unico)
 
 # Area
 class Area(models.Model):
