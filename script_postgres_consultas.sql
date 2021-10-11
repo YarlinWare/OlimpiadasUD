@@ -19,10 +19,10 @@ SELECT SD.nom_deporte
 FROM sports_deporte SD
 INNER JOIN campus_evento CE ON (CE.id_deporte_fk_id = SD.id_deporte)
 INNER JOIN campus_area CA ON (CA.id_area = CE.id_area_fk_id) AND (CA.id_complejo_fk_id = CE.id_complejo_fk_id) 
-								AND (CA.id_area = Complejo seleccionado);
+								AND (CA.id_area =  '00001');
 
 --3.4. Incluir los demás campos ¿?
-    -- id persona
+-- id persona
 
 --3.5. Responsable del Evento quien está “logueado” y la fecha de préstamo corresponde a la fecha del sistema.
 
@@ -68,7 +68,7 @@ SELECT UT.desc_tarea FROM users_tarea UT;
 
 SELECT cs.nom_complejo, cs.direccion, CA.ubicacion
 FROM campus_sede CS
-INNER JOIN campus_area CA ON (CA.id_complejo_fk_id = CS.id_complejo)
+INNER JOIN campus_area CA ON (CA.id_complejo_fk_id = CS.id_complejo);
 
 
 --4.2. Seleccionar de una lista el equipo (dicha lista contiene los quipos disponibles en inventario para la sede seleccionada
